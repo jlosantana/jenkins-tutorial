@@ -61,11 +61,12 @@ Como falado o Jenkins é Java Web Archive (WAR) e sendo executado sobre a pltafo
 | `--ajp13ListenAddress=$AJP_ADDR`   | Binds Jenkins to the IP address represented by $AJP_HOST. The default is 0.0.0.0 — i.e. listening on all available interfaces. |
 | `--sessionTimeout=$TIMEOUT`        | Sets the http session timeout value to $SESSION_TIMEOUT minutes. Default to what webapp specifies, and then to 60 minutes |
 
-### Parâmetros de JVM
+### Parâmetros/Propriedades de Sistema
 
-O Jenkins disponibiliza um arquivo jenkins.xml onde podem ser customizados parâmetros de execução.
+Propriedades de sistema são utilizadas pela JVM para habilitar configurações especiais que ficam geralmente escondidas.
+
+Utilizamos as propriedades informando através da linha de comando `-Dproperty=value`para o comando `java` que inicia o Jenkins. Importante, os parâmetros são para a JVM, então deve ficar logo após o java. Por exemplo:
 
 ```
-cat <jenkins_home>/jenkins.xml
+java -Djava.util.logging.config.file=<pathTo>/logging.properties -jar jenkins.war
 ```
-
