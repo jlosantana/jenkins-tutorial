@@ -113,7 +113,7 @@ pipeline {
         // Importante observar o Dockerfile disponível na aplicação
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t jlosantana/vuttr .
+                sh 'docker build -t jlosantana/vuttr .'
             }
         }
         // Para qualquer execução do Container em andamento
